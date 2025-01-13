@@ -31,7 +31,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const fetchTasks = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${API_URL}api/tasks`);
+        const response = await axios.get(`${API_URL}/tasks`);
         setTasks(response.data);
         setError(null);
       } catch (err: unknown) {
