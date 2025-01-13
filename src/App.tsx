@@ -2,7 +2,7 @@
  * Main application component that handles the task management interface.
  * Provides dark mode support, search functionality, and task management.
  */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { TaskProvider } from './context/TaskContext';
 import { TaskList } from './components/TaskList';
 import { Moon, Sun, Search, Plus } from 'lucide-react';
@@ -26,7 +26,7 @@ function TaskManagementApp() {
     task.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
     task.category.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
+
   // Handle adding a new task and close the modal
   const handleAddTask = (task: Omit<Task, '_id' | 'createdAt' | 'updatedAt'>) => {
     addTask(task);
