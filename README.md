@@ -2,8 +2,6 @@
 
 A modern, feature-rich task management application built with React, TypeScript, and Node.js.
 
-![Task Management App](https://source.unsplash.com/random/1200x630/?productivity,task)
-
 ## Features
 
 - ✨ Modern and intuitive user interface
