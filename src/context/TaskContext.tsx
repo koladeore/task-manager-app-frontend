@@ -74,7 +74,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
   */
   const updateTask = async (id: string, taskUpdate: Partial<Task>) => {
     try {
-      const response = await axios.patch(`${API_URL}/api/tasks/${id}`, taskUpdate);
+      const response = await axios.patch(`${API_URL}/tasks/${id}`, taskUpdate);
       setTasks(prevTasks =>
         prevTasks.map(task => (task._id === id ? response.data : task))
       );
@@ -95,7 +95,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
   */
   const deleteTask = async (id: string) => {
     try {
-      await axios.delete(`${API_URL}/api/tasks/${id}`);
+      await axios.delete(`${API_URL}/tasks/${id}`);
       setTasks(prevTasks => prevTasks.filter(task => task._id !== id));
       toast.success('Task deleted successfully');
     } catch (err: unknown) {
@@ -116,7 +116,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const reorderTasks = async (reorderedTasks: Task[]) => {
     try {
       // Send reordered tasks to the backend to persist the new order
-      await axios.post(`${API_URL}/api/tasks/reorder`, { tasks: reorderedTasks });
+      await axios.post(`${API_URL}/tasks/reorder`, { tasks: reorderedTasks });
 
       // Update the local state with the new order
       setTasks(reorderedTasks);
